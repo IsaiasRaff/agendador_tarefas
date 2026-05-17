@@ -1,0 +1,16 @@
+package com.isaiasraff.agendadortarefas.infraestructure.client;
+
+import com.isaiasraff.agendadortarefas.business.dto.UsuarioDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@FeignClient(name = "user", url = "${user.url}")
+public interface UsuarioClient {
+
+    @GetMapping
+    UsuarioDTO buscaUsuarioEmail(@RequestParam("email") String email,
+                                 @RequestHeader("Authorization") String token);
+
+}
