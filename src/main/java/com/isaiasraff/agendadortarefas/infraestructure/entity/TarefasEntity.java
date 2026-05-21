@@ -4,6 +4,8 @@ import com.isaiasraff.agendadortarefas.infraestructure.enums.StatusNotificacaoEn
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.time.LocalDateTime;
 
 @Setter
@@ -19,6 +21,7 @@ public class TarefasEntity {
     private String nomeTarefa;
     private String descricao;
     private LocalDateTime dataCriacao;
+    @Field("dataEvento")
     private LocalDateTime dataEvento;
     private String emailUsuario;
     private LocalDateTime dataAlteracao;
